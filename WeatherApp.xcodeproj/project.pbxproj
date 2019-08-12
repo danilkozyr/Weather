@@ -15,7 +15,8 @@
 		559E275222DF691E00F83C38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 559E275022DF691E00F83C38 /* LaunchScreen.storyboard */; };
 		559E276022DF80DC00F83C38 /* LocationDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E275F22DF80DC00F83C38 /* LocationDownloader.swift */; };
 		559E276222DF80E700F83C38 /* WeatherDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E276122DF80E700F83C38 /* WeatherDownloader.swift */; };
-		559E276522DF923300F83C38 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E276422DF923300F83C38 /* Double.swift */; };
+		559E276522DF923300F83C38 /* Extesnions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559E276422DF923300F83C38 /* Extesnions.swift */; };
+		55DD727C2301D03900DE3104 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DD727B2301D03900DE3104 /* Temperature.swift */; };
 		F0D4B914308915004CA5FAA0 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C81D633A329671C5465ECE5 /* Pods_WeatherApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +34,8 @@
 		559E275322DF691E00F83C38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		559E275F22DF80DC00F83C38 /* LocationDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDownloader.swift; sourceTree = "<group>"; };
 		559E276122DF80E700F83C38 /* WeatherDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDownloader.swift; sourceTree = "<group>"; };
-		559E276422DF923300F83C38 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		559E276422DF923300F83C38 /* Extesnions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extesnions.swift; sourceTree = "<group>"; };
+		55DD727B2301D03900DE3104 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +81,11 @@
 			isa = PBXGroup;
 			children = (
 				559E276322DF922400F83C38 /* Extensions */,
-				559E275C22DF7FBE00F83C38 /* Supporting Files */,
 				559E275B22DF7FB000F83C38 /* Model */,
 				559E275A22DF7FAC00F83C38 /* Controllers */,
 				559E275922DF7FA700F83C38 /* View */,
 				559E274722DF691900F83C38 /* AppDelegate.swift */,
+				559E274E22DF691E00F83C38 /* Assets.xcassets */,
 				559E275322DF691E00F83C38 /* Info.plist */,
 			);
 			path = WeatherApp;
@@ -92,6 +94,7 @@
 		559E275922DF7FA700F83C38 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				559E275022DF691E00F83C38 /* LaunchScreen.storyboard */,
 				559E274B22DF691900F83C38 /* Main.storyboard */,
 			);
 			path = View;
@@ -111,23 +114,15 @@
 				559E275F22DF80DC00F83C38 /* LocationDownloader.swift */,
 				559E276122DF80E700F83C38 /* WeatherDownloader.swift */,
 				5557F0F522E5D8E7003598E2 /* City.swift */,
+				55DD727B2301D03900DE3104 /* Temperature.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		559E275C22DF7FBE00F83C38 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				559E275022DF691E00F83C38 /* LaunchScreen.storyboard */,
-				559E274E22DF691E00F83C38 /* Assets.xcassets */,
-			);
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		559E276322DF922400F83C38 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				559E276422DF923300F83C38 /* Double.swift */,
+				559E276422DF923300F83C38 /* Extesnions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,7 +254,8 @@
 				559E276222DF80E700F83C38 /* WeatherDownloader.swift in Sources */,
 				5557F0F622E5D8E7003598E2 /* City.swift in Sources */,
 				559E274822DF691900F83C38 /* AppDelegate.swift in Sources */,
-				559E276522DF923300F83C38 /* Double.swift in Sources */,
+				559E276522DF923300F83C38 /* Extesnions.swift in Sources */,
+				55DD727C2301D03900DE3104 /* Temperature.swift in Sources */,
 				559E276022DF80DC00F83C38 /* LocationDownloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
