@@ -43,11 +43,14 @@ class LocationDownloader {
             return nil
         }
         
-        let cityName = arr[0].value(forKey: "city") as! String
-        let latitude = arr[0].value(forKey: "lat") as? NSNumber
-        let longitude = arr[0].value(forKey: "lng") as? NSNumber
+        guard var cityName = arr[0].value(forKey: "raw") as? String else { return nil }
+        if let countryState = arr[0].value(forKey: "country") as? String {
+            cityName += ", \(countryState.uppercased())"
+        }
+        guard let latitude = arr[0].value(forKey: "lat") as? NSNumber else { return nil }
+        guard let longitude = arr[0].value(forKey: "lng") as? NSNumber else { return nil }
 
-        city = City(city: cityName, longitude: (longitude?.doubleValue)!, latitude: (latitude?.doubleValue)!)
+        city = City(city: cityName, longitude: longitude.doubleValue, latitude: latitude.doubleValue)
                 
         return city
     }

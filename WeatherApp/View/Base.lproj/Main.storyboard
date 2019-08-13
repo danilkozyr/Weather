@@ -49,7 +49,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kyiv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uf-08-CKc">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uf-08-CKc">
                                                         <rect key="frame" x="0.0" y="27.5" width="374" height="29.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="25"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,13 +81,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="X8j-QE-kWC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Aa2-4q-inJ"/>
+                            <constraint firstItem="X8j-QE-kWC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="82O-rp-BdD"/>
                             <constraint firstItem="Fre-fW-kdb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="BPd-8M-xvc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X8j-QE-kWC" secondAttribute="trailing" constant="20" id="DJC-Ag-Txj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X8j-QE-kWC" secondAttribute="trailing" id="R7K-Ds-29f"/>
                             <constraint firstItem="w85-5f-laa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="h9c-LV-wwp"/>
                             <constraint firstItem="Fre-fW-kdb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kBH-qq-TSM"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="X8j-QE-kWC" secondAttribute="bottom" constant="20" id="pda-UX-LDq"/>
                             <constraint firstItem="w85-5f-laa" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="uxB-yq-7ca"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X8j-QE-kWC" secondAttribute="bottom" constant="20" id="wJL-YV-mZf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -99,7 +99,6 @@
                         <outlet property="icon" destination="Fre-fW-kdb" id="UZo-Sl-z7n"/>
                         <outlet property="inputCity" destination="aSD-Ky-AAG" id="QfI-kX-n9D"/>
                         <outlet property="temperature" destination="ovj-1f-fJx" id="Tvo-eM-OTf"/>
-                        <outlet property="viewToPop" destination="X8j-QE-kWC" id="RGs-2b-9yk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

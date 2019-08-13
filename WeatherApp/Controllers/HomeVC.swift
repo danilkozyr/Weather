@@ -8,34 +8,42 @@
 
 // TODO: Date
 
+import Foundation
 import UIKit
 
 class HomeVC: UIViewController {
     
     private var locationDownloader = LocationDownloader()
     private var weatherDownloader = WeatherDownloader()
+    private var keyboardSize: CGFloat?
     
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var temperature: UILabel!
-    @IBOutlet private weak var viewToPop: UIStackView!
     @IBOutlet private weak var icon: UIImageView!
     @IBOutlet private weak var activityIndicatior: UIActivityIndicatorView!
     @IBOutlet private weak var inputCity: UITextField! {
         didSet {
+            inputCity.delegate = self
             inputCity.attributedPlaceholder = NSAttributedString(string: "Enter city here...",
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            inputCity.delegate = self
         }
     }
     @IBOutlet weak var date: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+
+        view.addGestureRecognizer(tap)
         view.setGradientColor(colorOne: UIColor.Personal.darkBlue, colorTwo: UIColor.Personal.lightBlue)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         activityIndicatior.isHidden = true
         downloadWeather(in: "Kyiv")
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func changeImage(weather: String?) {
@@ -62,21 +70,26 @@ class HomeVC: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                UIView.animate(withDuration: 2, animations: {
-                    self.icon.alpha = 0.1
-                })
-                self.view.frame.origin.y -= keyboardSize.height
+        if keyboardSize == nil {
+            keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.height
+        }        
+        if self.view.frame.origin.y == 0 {
+            UIView.animate(withDuration: 1) {
+                self.icon.alpha = 0
             }
+            self.view.frame.origin.y -= keyboardSize!
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-            UIView.animate(withDuration: 2, animations: {
-                self.view.frame.origin.y = 0
+        if self.view.frame.origin.y != 0 {
+            UIView.animate(withDuration: 1) {
                 self.icon.alpha = 1
-            })
+            }
+            self.view.frame.origin.y = 0
+
+        }
+        
     }
     
     private func connectionInternet(isLoading: Bool) {
@@ -116,16 +129,20 @@ class HomeVC: UIViewController {
                         self.temperature.text = "\(result.tmp)°C, \(result.summary)"
                         self.changeImage(weather: result.icon)
                     case .failure(let error):
-                        print(error)
+                        self.city.text = error.localizedDescription
+                        self.temperature.text = "Error"
                     }
                 })
             case .failure(let error):
                 switch error {
                 case .invalidCity:
                     self.city.text = "Invalid City"
+                    self.temperature.text = "Error"
                 case .noInternetConnection:
+                    self.temperature.text = "Error"
                     self.city.text = "Check Internet connection"
                 case .noConnectionWithAPI:
+                    self.temperature.text = "Error"
                     self.city.text = "Severs are busy. Try again!"
                 }
             }
