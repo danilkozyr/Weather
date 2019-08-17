@@ -11,5 +11,5 @@ iOS Weather Forecast application allowing to show weather in the city we've ente
 
 ### Demonstration
 <p align="center">
-<img src="demo.gif" height=600>
+<img src="https://github.com/danilkozyr/iOS-Portfolio/raw/master/gifs/weather.gif" height=600>
 </p>
